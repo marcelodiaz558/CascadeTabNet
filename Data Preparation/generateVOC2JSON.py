@@ -101,11 +101,11 @@ def generateVOC2Json(rootDir,xmlFiles):
   # Save the final JSON file
   # jsonString = json.dumps(attrDict)
   jsonString = json.dumps(attrDict, indent = 4, sort_keys=True)
-  with open("/content/drive/My Drive/ICDAR 13 dataset/coco.json", "w") as f:
+  with open("./files/ICDAR 13 dataset/coco.json", "w") as f:
     f.write(jsonString)
 
 # Path to the txt file (see at the top of this script)
-trainFile = "/content/drive/My Drive/ICDAR 13 dataset/coco.txt"
+trainFile = "./files/ICDAR 13 dataset/coco.txt"
 trainXMLFiles = list()
 with open(trainFile, "r") as f:
 	for line in f:
@@ -114,7 +114,7 @@ with open(trainFile, "r") as f:
 		trainXMLFiles.append(fileName + ".xml")
 
 # Path to the pascal voc xml files 
-rootDir = "/content/drive/My Drive/ICDAR 13 dataset/2Be Fine Tuned"
+rootDir = "./files/ICDAR 13 dataset/2Be Fine Tuned"
 
 # Start execution
 generateVOC2Json(rootDir, trainXMLFiles)

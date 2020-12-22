@@ -8,8 +8,8 @@ def basicTransform(img):
 	img = cv2.bitwise_not(mask)
 	return img
 
-PATH_TO_DEST = "/content/drive/My Drive/Main Folder/Dataset/Smudge_Images/"
-PATH_TO_ORIGIAL_IMAGES = "/content/drive/My Drive/Main Folder/Dataset/Orig_Image/"
+PATH_TO_DEST = "./files/Main Folder/Dataset/Smudge_Images/"
+PATH_TO_ORIGIAL_IMAGES = "./files/Main Folder/Dataset/Orig_Image/"
 
 img_files = glob.glob(PATH_TO_ORIGIAL_IMAGES+"*.*")
 

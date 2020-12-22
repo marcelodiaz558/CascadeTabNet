@@ -5,8 +5,8 @@ import glob
 import numpy as np 
 
 # DEFINE THE PATH
-PATH_TO_DEST = "/content/drive/My Drive/Main Folder/Dataset/Dilation_image/"
-PATH_TO_ORIGIAL_IMAGES = "/content/drive/My Drive/Main Folder/Dataset/Orig_Image/"
+PATH_TO_DEST = "./files/Main Folder/Dataset/Dilation_image/"
+PATH_TO_ORIGIAL_IMAGES = "./files/Main Folder/Dataset/Orig_Image/"
 
 # if the source directory have other files than images, use extenstion of image 
 # to get the files ( for example *.png )
