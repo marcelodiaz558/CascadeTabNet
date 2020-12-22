@@ -105,7 +105,7 @@ def generateVOC2Json(rootDir,xmlFiles):
     f.write(jsonString)
 
 # Path to the txt file (see at the top of this script)
-trainFile = "./data/tabmod/coco.txt"
+trainFile = "./files/coco.txt"
 trainXMLFiles = list()
 with open(trainFile, "r") as f:
 	for line in f:
