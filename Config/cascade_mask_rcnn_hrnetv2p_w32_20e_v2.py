@@ -209,7 +209,7 @@ test_cfg = dict(
         mask_thr_binary=0.5))
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = './files/Mmdetection/'
+data_root = './data/tabmod/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -242,9 +242,9 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
-        ann_file='./files/chunk.json',
-        img_prefix='./files/chunk_images/',
-        pipeline=train_pipeline),
+        ann_file='./files/cell_annotations.json',
+        img_prefix='./data/tabmod/',
+        pipeline=train_pipeline))""",
     val=dict(
         type=dataset_type,
         ann_file=data_root + 'VOC2007/test.json',
@@ -254,7 +254,7 @@ data = dict(
         type=dataset_type,
         ann_file=data_root + 'VOC2007/test.json',
         img_prefix=data_root + 'VOC2007/Test/',
-        pipeline=test_pipeline))
+        pipeline=test_pipeline))"""
 # evaluation = dict(interval=1, metric=['bbox'])
 # optimizer
 optimizer = dict(type='SGD', lr=0.0012, momentum=0.9, weight_decay=0.0001)
@@ -279,7 +279,7 @@ log_config = dict(
 total_epochs = 36
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = './files/Mmdetection/new_chunk_cascade_mask_rcnn_hrnetv2p_w32_20e'
+work_dir = './files/'
 load_from = None
-resume_from = './files/Mmdetection/new_chunk_cascade_mask_rcnn_hrnetv2p_w32_20e/epoch_30.pth'
+resume_from = None
 workflow = [('train', 1)]
