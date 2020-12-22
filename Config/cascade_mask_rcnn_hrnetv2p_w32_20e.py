@@ -193,7 +193,7 @@ test_cfg = dict(
         mask_thr_binary=0.5))
 # dataset settings
 dataset_type = 'CocoDataset'
-data_root = '/content/files/Mmdetection/'
+data_root = './files/Mmdetection/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -226,8 +226,8 @@ data = dict(
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
-        ann_file='/content/files/chunk.json',
-        img_prefix='/content/files/chunk_images/',
+        ann_file='./files/chunk.json',
+        img_prefix='./files/chunk_images/',
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
@@ -263,7 +263,7 @@ log_config = dict(
 total_epochs = 36
 dist_params = dict(backend='nccl')
 log_level = 'INFO'
-work_dir = '/content/files/Mmdetection/new_chunk_cascade_mask_rcnn_hrnetv2p_w32_20e'
+work_dir = './files/Mmdetection/new_chunk_cascade_mask_rcnn_hrnetv2p_w32_20e'
 load_from = None
-resume_from = '/content/files/Mmdetection/new_chunk_cascade_mask_rcnn_hrnetv2p_w32_20e/epoch_30.pth'
+resume_from = './files/Mmdetection/new_chunk_cascade_mask_rcnn_hrnetv2p_w32_20e/epoch_30.pth'
 workflow = [('train', 1)]

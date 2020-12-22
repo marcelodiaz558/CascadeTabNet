@@ -128,10 +128,10 @@ def bb_intersection_over_union(ground_truth, detection):
 #List of epochs to be evaluated
 epochs = ['epoch_22.pth','epoch_23.pth','epoch_24.pth','epoch_25.pth','epoch_26.pth']
 # Testing Images
-# img_files = glob.glob("/content/files/TableBank/tablebank_both_augment/*.*")
+# img_files = glob.glob("./files/TableBank/tablebank_both_augment/*.*")
 
 #test json for word subset images . If you are using latex test subset then provide path for respective test json file
-with open('/content/files/TableBank/word_test.json') as f:
+with open('./files/TableBank/word_test.json') as f:
 	data = json.load(f)
 
 #Iterating over the list of epochs
@@ -143,8 +143,8 @@ for epoch in epochs:
 	try:
 		#cofig file path and checkpoint file path provide appropriate paths
 		score_thr = 0.9
-		config_fname = "/content/files/cascade_mask_rcnn_hrnetv2p_w32_20e.py"
-		checkpoint_file_path = "/content/files/Mmdetection/word_cascade_mask_rcnn_hrnetv2p_w32_20e/"+epoch
+		config_fname = "./files/cascade_mask_rcnn_hrnetv2p_w32_20e.py"
+		checkpoint_file_path = "./files/Mmdetection/word_cascade_mask_rcnn_hrnetv2p_w32_20e/"+epoch
 
 		# build the model from a config file and a checkpoint file
 		model = init_detector(config_fname, checkpoint_file_path)
@@ -157,7 +157,7 @@ for epoch in epochs:
 		for i in data['images']:
 			idx+=1        
 		
-			image_name = "/content/files/TableBank/tablebank_word/"+str(i['file_name'])
+			image_name = "./files/TableBank/tablebank_word/"+str(i['file_name'])
 			#Reading Image
 			iii = cv2.imread(image_name)
 			#If image is invalid then continue
