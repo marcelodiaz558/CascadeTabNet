@@ -144,7 +144,7 @@ for epoch in epochs:
 		#cofig file path and checkpoint file path provide appropriate paths
 		score_thr = 0.9
 		config_fname = "./files/cascade_mask_rcnn_hrnetv2p_w32_20e.py"
-		checkpoint_file_path = "./files/Mmdetection/word_cascade_mask_rcnn_hrnetv2p_w32_20e/"+epoch
+		checkpoint_file_path = "mmdetection/word_cascade_mask_rcnn_hrnetv2p_w32_20e/"+epoch
 
 		# build the model from a config file and a checkpoint file
 		model = init_detector(config_fname, checkpoint_file_path)
