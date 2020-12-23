@@ -252,6 +252,7 @@ lr_config = dict(
     step=[16, 19])
 checkpoint_config = dict(interval=1,create_symlink=False)
 gpu_ids = [0]
+seed = 1
 # yapf:disable
 log_config = dict(
     interval=50,
