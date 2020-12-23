@@ -224,7 +224,6 @@ test_pipeline = [
 data = dict(
     imgs_per_gpu=2,
     workers_per_gpu=2,
-    gpu_ids = [0],
     train=dict(
         type=dataset_type,
         ann_file='./files/cell_annotations.json',
@@ -252,6 +251,7 @@ lr_config = dict(
     warmup_ratio=1.0 / 3,
     step=[16, 19])
 checkpoint_config = dict(interval=1,create_symlink=False)
+gpu_ids = [0]
 # yapf:disable
 log_config = dict(
     interval=50,
@@ -268,4 +268,3 @@ work_dir = './files'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
-gpu_ids = [0]
