@@ -267,3 +267,4 @@ work_dir = './files'
 load_from = None
 resume_from = None
 workflow = [('train', 1)]
+gpu_ids = [0]
