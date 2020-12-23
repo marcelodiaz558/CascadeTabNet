@@ -228,17 +228,17 @@ data = dict(
         type=dataset_type,
         ann_file='./files/cell_annotations.json',
         img_prefix='./data/tabmod/',
-        pipeline=train_pipeline)
-    """val=dict(
-        type=dataset_type,
-        ann_file=data_root + 'VOC2007/test.json',
-        img_prefix=data_root + 'VOC2007/Test/',
-        pipeline=test_pipeline),
-    test=dict(
-        type=dataset_type,
-        ann_file=data_root + 'VOC2007/test.json',
-        img_prefix=data_root + 'VOC2007/Test/',
-        pipeline=test_pipeline))"""
+        pipeline=train_pipeline))
+"""val=dict(
+    type=dataset_type,
+    ann_file=data_root + 'VOC2007/test.json',
+    img_prefix=data_root + 'VOC2007/Test/',
+    pipeline=test_pipeline),
+test=dict(
+    type=dataset_type,
+    ann_file=data_root + 'VOC2007/test.json',
+    img_prefix=data_root + 'VOC2007/Test/',
+    pipeline=test_pipeline))"""
 # evaluation = dict(interval=1, metric=['bbox'])
 # optimizer
 optimizer = dict(type='SGD', lr=0.0012, momentum=0.9, weight_decay=0.0001)
