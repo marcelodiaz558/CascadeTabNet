@@ -4,23 +4,13 @@ import cv2
 from Functions.blessFunc import borderless
 import lxml.etree as etree
 import glob
+import io
 
-############ To Do ############
-image_path = 'path to directory of images'
-xmlPath = 'path to save xml'
-
-config_fname = "path to config file of model" 
-checkpoint_path = "path to checkpoint directory"
-epoch = 'epoch_file.name'
-##############################
-
-
-model = init_detector(config_fname, checkpoint_path+epoch)
-
-# List of images in the image_path
-imgs = glob.glob(image_path)
-for i in imgs:
+def get_xml(img, config_fname, checkpoint_path, epoch):
+    """ img: Numpy array """
+    model = init_detector(config_fname, checkpoint_path+epoch)
     result = inference_detector(model, i)
+    
     res_border = []
     res_bless = []
     res_cell = []
@@ -51,8 +41,12 @@ for i in imgs:
         if len(res_cell) != 0:
             for no,res in enumerate(res_bless):
                 root.append(borderless(res,cv2.imread(i),res_cell))
-
-    myfile = open(xmlPath+i.split('/')[-1][:-3]+'xml', "w")
+    
+    buffer = io.StringIO()
+    myfile = open(buffer, "w")
     myfile.write('<?xml version="1.0" encoding="UTF-8"?>\n')
     myfile.write(etree.tostring(root, pretty_print=True,encoding="unicode"))
     myfile.close()
+    buffer.seek(0)
+    
+    return buffer
